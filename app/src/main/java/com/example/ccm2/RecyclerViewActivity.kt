@@ -1,6 +1,9 @@
 package com.example.ccm2
 
 import android.os.Bundle
+import android.view.HapticFeedbackConstants
+import android.view.View
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -20,8 +23,9 @@ class RecyclerViewActivity : AppCompatActivity() {
 
 
         // Create the instance of adapter
-        mAdapter = AndroidVersionAdapter()
-
+        mAdapter = AndroidVersionAdapter{ item, view ->
+            onItemClick(item, view)
+        }
 
         // We define the style
         binding.recyclerView.layoutManager = LinearLayoutManager(this, RecyclerView.VERTICAL, false)
@@ -33,6 +37,11 @@ class RecyclerViewActivity : AppCompatActivity() {
 
         // Generate data and give it to adapter
         mAdapter.submitList(generateFakeData())
+    }
+
+    private fun onItemClick(objectDataSample: ObjectDataSample, view : View) {
+        view.performHapticFeedback(HapticFeedbackConstants.VIRTUAL_KEY)
+        Toast.makeText(this, objectDataSample.versionName, Toast.LENGTH_LONG).show()
     }
 
     private fun generateFakeData(): MutableList<MyObjectForRecyclerView> {
