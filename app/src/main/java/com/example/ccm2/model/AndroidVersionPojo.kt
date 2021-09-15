@@ -1,5 +1,8 @@
 package com.example.ccm2.model
 
+import androidx.room.Entity
+import androidx.room.PrimaryKey
+
 
 sealed class MyObjectForRecyclerView(label : String)
 
@@ -13,8 +16,24 @@ data class ObjectDataFooterSample(
 ) : MyObjectForRecyclerView(label = footer)
 
 
-data class ObjectDataSample(
+/*data class ObjectDataSample(
     val versionName: String,
     val versionCode: Int,
     val versionImage : String,
-) : MyObjectForRecyclerView(label = versionName)
+) : MyObjectForRecyclerView(label = versionName)*/
+
+@Entity(tableName = "android_version_object_table")
+data class ObjectDataSample(
+
+
+    val versionName: String,
+    val versionCode: Int,
+    val versionImage: String
+
+
+) : MyObjectForRecyclerView(label = versionName) {
+
+
+    @PrimaryKey(autoGenerate = true)
+    var id: Long = 0
+}
