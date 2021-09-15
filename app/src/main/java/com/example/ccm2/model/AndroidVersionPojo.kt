@@ -16,24 +16,18 @@ data class ObjectDataFooterSample(
 ) : MyObjectForRecyclerView(label = footer)
 
 
-/*data class ObjectDataSample(
+data class ObjectDataSample(
     val versionName: String,
     val versionCode: Int,
-    val versionImage : String,
-) : MyObjectForRecyclerView(label = versionName)*/
+    val versionImage : String
+) : MyObjectForRecyclerView(label = versionName)
 
 @Entity(tableName = "android_version_object_table")
-data class ObjectDataSample(
-
-
-    val versionName: String,
-    val versionCode: Int,
-    val versionImage: String
-
-
-) : MyObjectForRecyclerView(label = versionName) {
-
-
+data class LocalDataSourceSample(
+    val name: String,
+    val code: Int,
+    val image: String
+) {
     @PrimaryKey(autoGenerate = true)
     var id: Long = 0
 }

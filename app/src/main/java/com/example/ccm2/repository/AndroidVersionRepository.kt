@@ -1,13 +1,14 @@
 package com.example.ccm2.repository
 
-import com.example.ccm2.model.MyObjectForRecyclerView
-import com.example.ccm2.model.ObjectDataFooterSample
-import com.example.ccm2.model.ObjectDataHeaderSample
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.map
+import com.example.ccm2.architecture.CustomApplication
+import com.example.ccm2.model.LocalDataSourceSample
 import com.example.ccm2.model.ObjectDataSample
 
 class AndroidVersionRepository {
 
-    fun generateFakeData(): MutableList<MyObjectForRecyclerView> {
+    /*fun generateFakeData(): MutableList<MyObjectForRecyclerView> {
         val result = mutableListOf<MyObjectForRecyclerView>()
         // Create data raw
         mutableListOf(
@@ -30,5 +31,40 @@ class AndroidVersionRepository {
             result.add(ObjectDataFooterSample("Is footer"))
         }
         return result
+    }*/
+
+    private val mAndroidVersionDao =
+        CustomApplication.instance.mApplicationDatabase.mAndroidVersionDao()
+
+    fun selectAllAndroidVersion(): LiveData<List<ObjectDataSample>> {
+        return mAndroidVersionDao.selectAll().map { list ->
+            list.toObjectDataSample()
+        }
+    }
+
+    fun insertAndroidVersion(objectDataSample: ObjectDataSample) {
+        mAndroidVersionDao.insert(objectDataSample.toRoomObject())
+    }
+
+    fun deleteAllAndroidVersion() {
+        mAndroidVersionDao.deleteAll()
+    }
+}
+
+private fun ObjectDataSample.toRoomObject(): LocalDataSourceSample {
+    return LocalDataSourceSample(
+        name = versionName,
+        code = versionCode,
+        image = versionImage
+    )
+}
+
+private fun List<LocalDataSourceSample>.toObjectDataSample(): List<ObjectDataSample> {
+    return map { eachItem ->
+        ObjectDataSample(
+            versionCode = eachItem.code,
+            versionName = eachItem.name,
+            versionImage = eachItem.image
+        )
     }
 }

@@ -3,11 +3,11 @@ package com.example.ccm2.architecture
 import androidx.room.Database
 import androidx.room.RoomDatabase
 import com.example.ccm2.dao.AndroidVersionDao
-import com.example.ccm2.model.ObjectDataSample
+import com.example.ccm2.model.LocalDataSourceSample
 
 @Database(
     entities = [
-        ObjectDataSample::class
+        LocalDataSourceSample::class
     ],
     version = 1,
     exportSchema = false

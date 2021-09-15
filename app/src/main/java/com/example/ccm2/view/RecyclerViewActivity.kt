@@ -14,6 +14,7 @@ import com.example.ccm2.databinding.ActivityRecyclerViewBinding
 import com.example.ccm2.model.MyObjectForRecyclerView
 import com.example.ccm2.model.ObjectDataSample
 import com.example.ccm2.viewmodel.AndroidVersionViewModel
+import kotlin.random.Random
 
 class RecyclerViewActivity : AppCompatActivity() {
 
@@ -48,6 +49,18 @@ class RecyclerViewActivity : AppCompatActivity() {
 
         // We set the adapter to recycler view
         binding.recyclerView.adapter = adapter
+
+        binding.addItemButton.setOnClickListener { addRandomAndroidVersion() }
+        binding.deleteAllItemButton.setOnClickListener { deleteAndroidVersion() }
+    }
+
+    private fun addRandomAndroidVersion() {
+        val random = Random.nextInt(0, 1000)
+        viewModel.insertAndroidVersion("Android $random", random, "url:$random")
+    }
+
+    private fun deleteAndroidVersion() {
+        viewModel.deleteAllAndroidVersion()
     }
 
     private fun onItemClick(objectDataSample: ObjectDataSample, view : View) {
