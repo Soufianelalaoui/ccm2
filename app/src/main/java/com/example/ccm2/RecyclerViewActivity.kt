@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.ccm2.databinding.ActivityRecyclerViewBinding
 import com.example.ccm2.model.MyObjectForRecyclerView
+import com.example.ccm2.model.ObjectDataFooterSample
 import com.example.ccm2.model.ObjectDataHeaderSample
 import com.example.ccm2.model.ObjectDataSample
 
@@ -64,6 +65,7 @@ class RecyclerViewActivity : AppCompatActivity() {
             // Here we have a map (key = isModulo) and each key have a list of it's items
             result.add(ObjectDataHeaderSample("Is modulo : $isModulo"))
             result.addAll(items)
+            result.add(ObjectDataFooterSample("Is footer"))
         }
         return result
     }

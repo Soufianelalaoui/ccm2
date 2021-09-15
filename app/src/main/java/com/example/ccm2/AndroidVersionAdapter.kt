@@ -7,8 +7,10 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.ccm2.databinding.ItemCustomRecyclerBinding
+import com.example.ccm2.databinding.ItemCustomRecyclerFooterBinding
 import com.example.ccm2.databinding.ItemCustomRecyclerHeaderBinding
 import com.example.ccm2.model.MyObjectForRecyclerView
+import com.example.ccm2.model.ObjectDataFooterSample
 import com.example.ccm2.model.ObjectDataHeaderSample
 import com.example.ccm2.model.ObjectDataSample
 
@@ -45,17 +47,23 @@ class AndroidVersionAdapter(private val onItemClick: (quoteUi: ObjectDataSample,
                     )
                 )
             }
+            MyItemType.FOOTER.type -> {
+                AndroidVersionFooterViewHolder(
+                    ItemCustomRecyclerFooterBinding.inflate(
+                        LayoutInflater.from(parent.context),
+                        parent,
+                        false
+                    )
+                )
+            }
             else -> throw RuntimeException("Wrong view type received $viewType")
         }
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) =
         when (holder.itemViewType) {
             MyItemType.ROW.type -> (holder as AndroidVersionViewHolder).bind(getItem(position) as ObjectDataSample)
-            MyItemType.HEADER.type -> (holder as AndroidVersionHeaderViewHolder).bind(
-                getItem(
-                    position
-                ) as ObjectDataHeaderSample
-            )
+            MyItemType.HEADER.type -> (holder as AndroidVersionHeaderViewHolder).bind(getItem(position) as ObjectDataHeaderSample)
+            MyItemType.FOOTER.type -> (holder as AndroidVersionFooterViewHolder).bind(getItem(position) as ObjectDataFooterSample)
             else -> throw RuntimeException("Wrong view type received ${holder.itemView}")
         }
 
@@ -63,7 +71,16 @@ class AndroidVersionAdapter(private val onItemClick: (quoteUi: ObjectDataSample,
         return when (getItem(position)) {
             is ObjectDataSample -> MyItemType.ROW.type
             is ObjectDataHeaderSample -> MyItemType.HEADER.type
+            is ObjectDataFooterSample -> MyItemType.FOOTER.type
         }
+    }
+}
+
+class AndroidVersionFooterViewHolder(
+    private val binding: ItemCustomRecyclerFooterBinding
+) : RecyclerView.ViewHolder(binding.root) {
+    fun bind(objectDataFooterSample: ObjectDataFooterSample) {
+        binding.itemRecyclerViewFooter.text = objectDataFooterSample.footer
     }
 }
 
@@ -97,5 +114,6 @@ class AndroidVersionHeaderViewHolder(
 
 enum class MyItemType(val type: Int) {
     ROW(0),
-    HEADER(1)
+    HEADER(1),
+    FOOTER(2)
 }
