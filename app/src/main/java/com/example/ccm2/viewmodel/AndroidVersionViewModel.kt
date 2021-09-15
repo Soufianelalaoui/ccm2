@@ -1,49 +1,26 @@
-package com.example.ccm2
+package com.example.ccm2.viewmodel
 
-import android.os.Bundle
-import android.view.HapticFeedbackConstants
-import android.view.View
-import android.widget.Toast
-import androidx.appcompat.app.AppCompatActivity
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
-import com.example.ccm2.databinding.ActivityRecyclerViewBinding
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.ViewModel
 import com.example.ccm2.model.MyObjectForRecyclerView
 import com.example.ccm2.model.ObjectDataFooterSample
 import com.example.ccm2.model.ObjectDataHeaderSample
 import com.example.ccm2.model.ObjectDataSample
 
-class RecyclerViewActivity : AppCompatActivity() {
-
-    private lateinit var mAdapter: AndroidVersionAdapter
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        var binding = ActivityRecyclerViewBinding.inflate(layoutInflater)
-        setContentView(binding.root)
+class AndroidVersionViewModel : ViewModel() {
 
 
-        // Create the instance of adapter
-        mAdapter = AndroidVersionAdapter{ item, view ->
-            onItemClick(item, view)
-        }
-
-        // We define the style
-        binding.recyclerView.layoutManager = LinearLayoutManager(this, RecyclerView.VERTICAL, false)
+    private val _androidVersionList = MutableLiveData<List<MyObjectForRecyclerView>>()
 
 
-        // We set the adapter to recycler view
-        binding.recyclerView.adapter = mAdapter
+    val androidVersionList: LiveData<List<MyObjectForRecyclerView>> get() = _androidVersionList
 
 
-        // Generate data and give it to adapter
-        mAdapter.submitList(generateFakeData())
+    init {
+        _androidVersionList.postValue(generateFakeData())
     }
 
-    private fun onItemClick(objectDataSample: ObjectDataSample, view : View) {
-        view.performHapticFeedback(HapticFeedbackConstants.VIRTUAL_KEY)
-        Toast.makeText(this, objectDataSample.versionName, Toast.LENGTH_LONG).show()
-    }
 
     private fun generateFakeData(): MutableList<MyObjectForRecyclerView> {
         val result = mutableListOf<MyObjectForRecyclerView>()
@@ -69,5 +46,4 @@ class RecyclerViewActivity : AppCompatActivity() {
         }
         return result
     }
-
 }
