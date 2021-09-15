@@ -6,6 +6,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.example.ccm2.databinding.ItemCustomRecyclerBinding
 import com.example.ccm2.databinding.ItemCustomRecyclerFooterBinding
 import com.example.ccm2.databinding.ItemCustomRecyclerHeaderBinding
@@ -89,7 +90,9 @@ class AndroidVersionViewHolder(
     onItemClick: (objectDataSample: ObjectDataSample, view: View) -> Unit
 ) : RecyclerView.ViewHolder(binding.root) {
 
+
     private lateinit var ui: ObjectDataSample
+
 
     init {
         binding.root.setOnClickListener {
@@ -97,12 +100,18 @@ class AndroidVersionViewHolder(
         }
     }
 
+
     fun bind(objectDataSample: ObjectDataSample) {
         ui = objectDataSample
         binding.itemRecyclerViewVersionName.text = objectDataSample.versionName
         binding.itemRecyclerViewVersionCode.text = "${objectDataSample.versionCode}"
+        Glide.with(itemView.context)
+            .load(objectDataSample.versionImage)
+            //.placeholder(R.drawable.ic_launcher_background)
+            .into(binding.itemRecyclerViewVersionImage)
     }
 }
+
 
 class AndroidVersionHeaderViewHolder(
     private val binding: ItemCustomRecyclerHeaderBinding

@@ -16,4 +16,5 @@ data class ObjectDataFooterSample(
 data class ObjectDataSample(
     val versionName: String,
     val versionCode: Int,
+    val versionImage : String,
 ) : MyObjectForRecyclerView(label = versionName)
