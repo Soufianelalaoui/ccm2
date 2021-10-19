@@ -4,7 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
-import com.example.ccm2.chuckNorris.view.ChuckNorrisActivity
+import com.example.ccm2.tp4.view.Tp4Activity
 
 class MainActivity : AppCompatActivity() {
 
@@ -14,7 +14,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun onClickOpenRecyclerView(view: View) {
-        val intent = Intent(this, ChuckNorrisActivity::class.java)
+        val intent = Intent(this, Tp4Activity::class.java)
         startActivity(intent)
     }
 }
