@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "210237157749",
+    "project_id": "ccm2-823f7",
+    "storage_bucket": "ccm2-823f7.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:210237157749:android:eb999cdb5759ed7db2a33c",
+        "android_client_info": {
+          "package_name": "com.example.ccm2"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "210237157749-f14smsdd379jfkbu9lqouac49dogn589.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDVymB4B7Nt_6IcPvmtMtdYM0WydSAIr_w"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "210237157749-f14smsdd379jfkbu9lqouac49dogn589.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

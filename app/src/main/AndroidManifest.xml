@@ -22,6 +22,14 @@
         </activity>
         <activity android:name="com.example.ccm2.myfeature.view.RecyclerViewActivity"/>
         <activity android:name="com.example.ccm2.chuckNorris.view.ChuckNorrisActivity"/>
+        <service
+            android:name=".architecture.service.MyFirebaseMessagingService"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
+
     </application>
 
 </manifest>
