@@ -2,6 +2,8 @@ package com.example.ccm2.chuckNorris.repository
 
 import androidx.lifecycle.LiveData
 import com.example.ccm2.architecture.CustomApplication
+import com.example.ccm2.architecture.RetrofitBuilder
+import com.example.ccm2.chuckNorris.model.ChuckNorrisRetrofit
 import com.example.ccm2.chuckNorris.model.ChuckNorrisRoom
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
@@ -26,7 +28,14 @@ class ChuckNorrisQuoteRepository {
 
 
     suspend fun fetchData() {
-        // TODO LATER
+        insertChuckNorrisQuote(RetrofitBuilder.getChuckNorrisQuote().getRandomQuote().toRoom())
     }
+}
 
+
+private fun ChuckNorrisRetrofit.toRoom(): ChuckNorrisRoom {
+    return ChuckNorrisRoom(
+        quote = quote,
+        iconUrl = iconUrl
+    )
 }
