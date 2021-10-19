@@ -10,10 +10,10 @@ import com.bumptech.glide.Glide
 import com.example.ccm2.databinding.ItemCustomRecyclerBinding
 import com.example.ccm2.databinding.ItemCustomRecyclerFooterBinding
 import com.example.ccm2.databinding.ItemCustomRecyclerHeaderBinding
-import com.example.ccm2.model.MyObjectForRecyclerView
-import com.example.ccm2.model.ObjectDataFooterSample
-import com.example.ccm2.model.ObjectDataHeaderSample
-import com.example.ccm2.model.ObjectDataSample
+import com.example.ccm2.myfeature.model.MyObjectForRecyclerView
+import com.example.ccm2.myfeature.model.ObjectDataFooterSample
+import com.example.ccm2.myfeature.model.ObjectDataHeaderSample
+import com.example.ccm2.myfeature.model.ObjectDataSample
 
 private val diffItemUtils = object : DiffUtil.ItemCallback<MyObjectForRecyclerView>() {
 

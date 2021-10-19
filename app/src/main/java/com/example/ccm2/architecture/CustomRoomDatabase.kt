@@ -2,8 +2,8 @@ package com.example.ccm2.architecture
 
 import androidx.room.Database
 import androidx.room.RoomDatabase
-import com.example.ccm2.dao.AndroidVersionDao
-import com.example.ccm2.model.LocalDataSourceSample
+import com.example.ccm2.myfeature.dao.AndroidVersionDao
+import com.example.ccm2.myfeature.model.LocalDataSourceSample
 
 @Database(
     entities = [

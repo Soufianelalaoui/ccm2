@@ -1,10 +1,10 @@
-package com.example.ccm2.repository
+package com.example.ccm2.myfeature.repository
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.map
 import com.example.ccm2.architecture.CustomApplication
-import com.example.ccm2.model.LocalDataSourceSample
-import com.example.ccm2.model.ObjectDataSample
+import com.example.ccm2.myfeature.model.LocalDataSourceSample
+import com.example.ccm2.myfeature.model.ObjectDataSample
 
 class AndroidVersionRepository {
 

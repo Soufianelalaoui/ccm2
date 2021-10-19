@@ -4,7 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
-import com.example.ccm2.view.RecyclerViewActivity
+import com.example.ccm2.myfeature.view.RecyclerViewActivity
 
 class MainActivity : AppCompatActivity() {
 

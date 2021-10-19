@@ -1,4 +1,4 @@
-package com.example.ccm2.model
+package com.example.ccm2.myfeature.model
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey

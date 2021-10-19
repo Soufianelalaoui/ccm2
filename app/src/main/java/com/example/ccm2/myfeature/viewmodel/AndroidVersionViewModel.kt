@@ -1,11 +1,11 @@
-package com.example.ccm2.viewmodel
+package com.example.ccm2.myfeature.viewmodel
 
 import androidx.lifecycle.*
-import com.example.ccm2.model.MyObjectForRecyclerView
-import com.example.ccm2.model.ObjectDataFooterSample
-import com.example.ccm2.model.ObjectDataHeaderSample
-import com.example.ccm2.model.ObjectDataSample
-import com.example.ccm2.repository.AndroidVersionRepository
+import com.example.ccm2.myfeature.model.MyObjectForRecyclerView
+import com.example.ccm2.myfeature.model.ObjectDataFooterSample
+import com.example.ccm2.myfeature.model.ObjectDataHeaderSample
+import com.example.ccm2.myfeature.model.ObjectDataSample
+import com.example.ccm2.myfeature.repository.AndroidVersionRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 

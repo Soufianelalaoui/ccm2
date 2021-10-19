@@ -20,7 +20,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".view.RecyclerViewActivity"/>
+        <activity android:name="com.example.ccm2.myfeature.view.RecyclerViewActivity"/>
     </application>
 
 </manifest>

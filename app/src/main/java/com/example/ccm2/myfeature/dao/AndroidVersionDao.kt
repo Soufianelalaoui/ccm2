@@ -1,11 +1,11 @@
-package com.example.ccm2.dao
+package com.example.ccm2.myfeature.dao
 
 import androidx.lifecycle.LiveData
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
-import com.example.ccm2.model.LocalDataSourceSample
+import com.example.ccm2.myfeature.model.LocalDataSourceSample
 
 @Dao
 interface AndroidVersionDao {

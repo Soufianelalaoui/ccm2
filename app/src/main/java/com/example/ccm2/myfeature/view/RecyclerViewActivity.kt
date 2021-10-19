@@ -1,4 +1,4 @@
-package com.example.ccm2.view
+package com.example.ccm2.myfeature.view
 
 import android.os.Bundle
 import android.view.HapticFeedbackConstants
@@ -11,9 +11,9 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.ccm2.AndroidVersionAdapter
 import com.example.ccm2.databinding.ActivityRecyclerViewBinding
-import com.example.ccm2.model.MyObjectForRecyclerView
-import com.example.ccm2.model.ObjectDataSample
-import com.example.ccm2.viewmodel.AndroidVersionViewModel
+import com.example.ccm2.myfeature.model.MyObjectForRecyclerView
+import com.example.ccm2.myfeature.model.ObjectDataSample
+import com.example.ccm2.myfeature.viewmodel.AndroidVersionViewModel
 import kotlin.random.Random
 
 class RecyclerViewActivity : AppCompatActivity() {
