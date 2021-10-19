@@ -21,6 +21,7 @@
             </intent-filter>
         </activity>
         <activity android:name="com.example.ccm2.myfeature.view.RecyclerViewActivity"/>
+        <activity android:name="com.example.ccm2.chuckNorris.view.ChuckNorrisActivity"/>
     </application>
 
 </manifest>
